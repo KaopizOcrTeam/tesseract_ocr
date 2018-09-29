@@ -1,0 +1,10 @@
+# Get final model
+TRAIN_DATETIME=201806281531
+LAST_RUN_TIME=201806281646
+TRAIN_DIR=./training/$TRAIN_DATETIME/data
+OUTPUT_DIR=./training-output/$TRAIN_DATETIME
+tesseract-ocr/src/training/lstmtraining --stop_training \
+                                        --continue_from $OUTPUT_DIR/${LAST_RUN_TIME}/jpn_out_checkpoint \
+                                        --traineddata $TRAIN_DIR/jpn/jpn.traineddata \
+                                        --model_output $OUTPUT_DIR/${LAST_RUN_TIME}/jpn_${LAST_RUN_TIME}_`date +"%Y%m%d%H%M"`.traineddata
+

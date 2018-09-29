@@ -1,0 +1,117 @@
+export FONTS_DIR=/usr/share/fonts
+export LANGDATA_DIR=./tesseract-ocr/langdata
+export TESSDATA_DIR=./tessdata
+export TRAIN_OUTPUT_DIR=./training/`date +"%Y%m%d%H%M"`/data
+
+mkdir -p ${TRAIN_OUTPUT_DIR}
+
+./tesseract-ocr/src/training/tesstrain.sh --fonts_dir $FONTS_DIR \
+                          --lang jpn \
+                          --linedata_only \
+                          --langdata_dir $LANGDATA_DIR \
+                          --tessdata_dir $TESSDATA_DIR \
+                          --output_dir $TRAIN_OUTPUT_DIR \
+                          --noextract_font_properties \
+                          --training_text ./tesseract-ocr/langdata/jpn/test.training_text \
+                          --fontlist 'Noto Sans CJK JP Light'
+
+################################################ Sample fontlist ##############################################
+
+# arial-unicode-ms
+                          # --fontlist 'Arial Unicode MS' 
+# code2000
+                          # --fontlist 'Code2000 Medium'
+
+# droid-sans-fallback
+                          # --fontlist 'Droid Sans' 'Droid Sans Bold' 'Droid Sans Fallback' 'Droid Sans Japanese' 'Droid Sans Mono'
+
+# genei-koburi
+                          # --fontlist 'GenEi Antique Pv4 Medium' 'GenEi Antique v4 Medium' 'GenEi Gothic M' 'GenEi Gothic M Bold' 'GenEi Gothic M Light' 'GenEi Gothic M Medium' 'GenEi Gothic M Semi-Light' 'GenEi Gothic M Ultra-Bold' 'GenEi Gothic M Ultra-Light' 'GenEi Gothic N' 'GenEi Gothic N Bold' 'GenEi Gothic N Heavy' 'GenEi Gothic N Heavy' 'GenEi Gothic N Light' 'GenEi Gothic N Medium' 'GenEi Gothic N Semi-Light' 'GenEi Gothic N Ultra-Bold' 'GenEi Gothic N Ultra-Light' 'GenEi Gothic P' 'GenEi Gothic P Bold' 'GenEi Gothic P Heavy' 'GenEi Gothic P Light' 'GenEi Gothic P Medium' 'GenEi Gothic P Semi-Light' 'GenEi Gothic P Ultra-Bold' 'GenEi Gothic P Ultra-Light' 'GenEi Koburi Mincho' 'GenEi Koburi Mincho TTF' 'GenEi LateGo P v2 Medium' 'GenEi LateGo v2 Medium' 'GenEi LateMin P v2 Medium' 'GenEi LateMin v2 Medium'
+
+# hanazono
+                          # --fontlist 'HanaMinA Medium'
+
+# heisei-mincho
+                          # --fontlist 'Heisei Mincho Std Bold' 'Heisei Mincho Std Heavy' 'Heisei Mincho Std Light' 'Heisei Mincho Std Medium'
+
+# hiragino-gothic
+                          # --fontlist 'HC Maru Gothic' 'HCP Maru Gothic' 'Hiragino Kaku Gothic Pro Light' 'Hiragino Kaku Gothic Pro Semi-Bold' 'Hiragino Maru Gothic Pro'
+
+# hiragino-mincho
+                          # --fontlist 'Hiragino Mincho Pro Light' 'Hiragino Mincho Pro Semi-Bold' 'Hiragino Mincho ProN Light' 'Hiragino Mincho ProN Semi-Bold'
+
+# ipa-ipaex
+                          # --fontlist 'IPAGothic' 'IPAMincho' 'IPAPGothic' 'IPAPMincho' 'IPAexGothic' 'IPAexMincho' 'IPAmjMincho'
+
+# kanji-stroke-orders
+                          # --fontlist 'KanjiStrokeOrders Medium'
+
+# kochi-gothic
+                          # --fontlist 'Kochi Gothic'
+
+# kochi-mincho
+                          # --fontlist 'Kochi Mincho'
+
+# kozuka-gothic
+                          # --fontlist 'Kozuka Gothic Pro' 'Kozuka Gothic Pro Bold' 'Kozuka Gothic Pro Heavy' 'Kozuka Gothic Pro Light' 'Kozuka Gothic Pro Medium' 'Kozuka Gothic Pro Ultra-Light'
+
+# kozuka-mincho
+                          # --fontlist 'Kozuka Mincho Pro' 'Kozuka Mincho Pro Bold' 'Kozuka Mincho Pro Heavy' 'Kozuka Mincho Pro Light' 'Kozuka Mincho Pro Medium' 'Kozuka Mincho Pro Ultra-Light'
+
+# meiryo
+                          # --fontlist 'Meiryo' 'Meiryo Italic' 'Meiryo UI' 'Meiryo UI Italic'
+
+# monafont
+                          # --fontlist 'Mona'
+
+# m-plus
+                          # --fontlist 'M+ 1c' 'M+ 1c Bold' 'M+ 1c Heavy' 'M+ 1c Light' 'M+ 1c Medium' 'M+ 1c Thin' 'M+ 1c Ultra-Bold' 'M+ 1m' 'M+ 1m Bold' 'M+ 1m Light' 'M+ 1m Medium' 'M+ 1m Thin' 'M+ 1mn' 'M+ 1mn Bold' 'M+ 1mn Light' 'M+ 1mn Medium' 'M+ 1mn Thin' 'M+ 1p' 'M+ 1p Bold' 'M+ 1p Heavy' 'M+ 1p Light' 'M+ 1p Medium' 'M+ 1p Thin' 'M+ 1p Ultra-Bold' 'M+ 2c' 'M+ 2c Bold' 'M+ 2c Heavy' 'M+ 2c Light' 'M+ 2c Medium' 'M+ 2c Thin' 'M+ 2c Ultra-Bold' 'M+ 2m' 'M+ 2m Bold' 'M+ 2m Light' 'M+ 2m Medium' 'M+ 2m Thin' 'M+ 2p' 'M+ 2p Bold' 'M+ 2p Heavy' 'M+ 2p Light' 'M+ 2p Medium' 'M+ 2p Thin' 'M+ 2p Ultra-Bold'  
+
+# ms-gothic
+                          # --fontlist 'MS Gothic' 'MS PGothic'
+
+# ms-mincho
+                          # --fontlist 'MS Mincho' 'MS PMincho'
+
+# noto
+                          # --fontlist 'Noto Sans CJK JP' 'Noto Sans CJK JP Bold' 'Noto Sans CJK JP Heavy' 'Noto Sans CJK JP Light' 'Noto Sans CJK JP Medium' 'Noto Sans CJK JP Semi-Light' 'Noto Sans CJK JP Ultra-Light' 'Noto Sans Mono CJK JP' 'Noto Sans Mono CJK JP Bold' 'Noto Serif CJK JP' 'Noto Serif CJK JP Bold' 'Noto Serif CJK JP Heavy' 'Noto Serif CJK JP Light' 'Noto Serif CJK JP Medium' 'Noto Serif CJK JP Semi-Bold' 'Noto Serif CJK JP Ultra-Light'
+
+# osaka
+                          # --fontlist 'osaka_unicode'
+
+# sazanami
+                          # --fontlist 'Sazanami Gothic Medium' 'Sazanami Mincho Medium' 'Sazanami-Hanazono Mincho Medium'
+
+# source-han-serif
+                          # --fontlist 'Source Han Serif JP' 'Source Han Serif JP Bold' 'Source Han Serif JP Heavy' 'Source Han Serif JP Light' 'Source Han Serif JP Medium' 'Source Han Serif JP Semi-Bold' 'Source Han Serif JP Ultra-Light'
+
+# takao-gothic
+                          # --fontlist 'TakaoExGothic' 'TakaoGothic' 'TakaoPGothic'
+
+# takao-mincho
+                          # --fontlist 'TakaoExMincho' 'TakaoMincho' 'TakaoPMincho'
+
+# TH-Tshyn
+                          # --fontlist 'TH-Ming-P0' 'TH-Tshyn-P0'
+
+# unifont
+                          # --fontlist 'Unifont CSUR Medium' 'Unifont Medium' 'Unifont Sample Medium'
+
+# vl-gothic
+                          # --fontlist 'VL Gothic' 'VL PGothic'
+
+# y-oz
+                          # --fontlist 'YOzFont-Pro-B' 'YOzFont-Pro-R' 'YOzFont-ProN-B' 'YOzFont-ProN-R' 'YOzFont-Std-B' 'YOzFont-Std-R' 'YOzFont-StdN-B' 'YOzFont-StdN-R' 'YOzFontA-Pro-B' 'YOzFontA-Pro-R' 'YOzFontA-ProN-B' 'YOzFontA-ProN-R' 'YOzFontA-Std-B' 'YOzFOntA-Std-R' 'YOzFontA-StdN-B' 'YOzFontA-StdN-R' 'YOzFontC-Pro-B' 'YOzFontC-Pro-R' 'YOzFontC-ProN-B' 'YOzFontC-ProN-R' 'YOzFontC-Std-B' 'YOzFontC-Std-R' 'YOzFontC-StdN-B' 'YOzFontC-StdN-R' 'YOzFontE-Pro-B' 'YOzFontE-Pro-R' 'YOzFontE-ProN-B' 'YOzFontE-ProN-R' 'YOzFontE-Std-B' 'YOzFontE-Std-R' 'YOzFontE-StdN-R' 'YOzFontN-Pro-B' 'YOzFontN-Pro-R' 'YOzFontN-ProN-B' 'YOzFontN-ProN-R' 'YOzFontN-Std-B' 'YOzFontN-Std-R' 'YOzFontN-StdN-B' 'YOzFontN-StdN-R'
+
+# ALL FONTS
+
+                          # --fontlist 'Arial Unicode MS' 'Code2000 Medium' 'GenEi Antique Pv4 Medium' 'GenEi Antique v4 Medium' 'GenEi Gothic M' 'GenEi Gothic M Bold' 'GenEi Gothic M Light' 'GenEi Gothic M Medium' 'GenEi Gothic M Semi-Light' 'GenEi Gothic M Ultra-Bold' 'GenEi Gothic M Ultra-Light' 'GenEi Gothic N' 'GenEi Gothic N Bold' 'GenEi Gothic N Heavy' 'GenEi Gothic N Heavy' 'GenEi Gothic N Light' 'GenEi Gothic N Medium' 'GenEi Gothic N Semi-Light' 'GenEi Gothic N Ultra-Bold' 'GenEi Gothic N Ultra-Light' 'GenEi Gothic P' 'GenEi Gothic P Bold' 'GenEi Gothic P Heavy' 'GenEi Gothic P Light' 'GenEi Gothic P Medium' 'GenEi Gothic P Semi-Light' 'GenEi Gothic P Ultra-Bold' 'GenEi Gothic P Ultra-Light' 'GenEi Koburi Mincho' 'GenEi Koburi Mincho TTF' 'GenEi LateGo P v2 Medium' 'GenEi LateGo v2 Medium' 'GenEi LateMin P v2 Medium' 'GenEi LateMin v2 Medium' 'HanaMinA Medium' 'Heisei Mincho Std Bold' 'Heisei Mincho Std Heavy' 'Heisei Mincho Std Light' 'Heisei Mincho Std Medium' 'HC Maru Gothic' 'HCP Maru Gothic' 'Hiragino Kaku Gothic Pro Light' 'Hiragino Kaku Gothic Pro Semi-Bold' 'Hiragino Maru Gothic Pro' 'Hiragino Mincho Pro Light' 'Hiragino Mincho Pro Semi-Bold' 'Hiragino Mincho ProN Light' 'Hiragino Mincho ProN Semi-Bold' 'IPAGothic' 'IPAMincho' 'IPAPGothic' 'IPAPMincho' 'IPAexGothic' 'IPAexMincho' 'IPAmjMincho' 'Kochi Gothic' 'Kochi Mincho' 'Kozuka Gothic Pro' 'Kozuka Gothic Pro Bold' 'Kozuka Gothic Pro Heavy' 'Kozuka Gothic Pro Light' 'Kozuka Gothic Pro Medium' 'Kozuka Gothic Pro Ultra-Light' 'Kozuka Mincho Pro' 'Kozuka Mincho Pro Bold' 'Kozuka Mincho Pro Heavy' 'Kozuka Mincho Pro Light' 'Kozuka Mincho Pro Medium' 'Kozuka Mincho Pro Ultra-Light' 'Meiryo' 'Meiryo Italic' 'Meiryo UI' 'Meiryo UI Italic' 'Mona' 'M+ 1c' 'M+ 1c Bold' 'M+ 1c Heavy' 'M+ 1c Light' 'M+ 1c Medium' 'M+ 1c Thin' 'M+ 1c Ultra-Bold' 'M+ 1m' 'M+ 1m Bold' 'M+ 1m Light' 'M+ 1m Medium' 'M+ 1m Thin' 'M+ 1mn' 'M+ 1mn Bold' 'M+ 1mn Light' 'M+ 1mn Medium' 'M+ 1mn Thin' 'M+ 1p' 'M+ 1p Bold' 'M+ 1p Heavy' 'M+ 1p Light' 'M+ 1p Medium' 'M+ 1p Thin' 'M+ 1p Ultra-Bold' 'M+ 2c' 'M+ 2c Bold' 'M+ 2c Heavy' 'M+ 2c Light' 'M+ 2c Medium' 'M+ 2c Thin' 'M+ 2c Ultra-Bold' 'M+ 2m' 'M+ 2m Bold' 'M+ 2m Light' 'M+ 2m Medium' 'M+ 2m Thin' 'M+ 2p' 'M+ 2p Bold' 'M+ 2p Heavy' 'M+ 2p Light' 'M+ 2p Medium' 'M+ 2p Thin' 'M+ 2p Ultra-Bold'  'MS Gothic' 'MS PGothic' 'MS Mincho' 'MS PMincho' 'Noto Sans CJK JP' 'Noto Sans CJK JP Bold' 'Noto Sans CJK JP Heavy' 'Noto Sans CJK JP Light' 'Noto Sans CJK JP Medium' 'Noto Sans CJK JP Semi-Light' 'Noto Sans CJK JP Ultra-Light' 'Noto Sans Mono CJK JP' 'Noto Sans Mono CJK JP Bold' 'Noto Serif CJK JP' 'Noto Serif CJK JP Bold' 'Noto Serif CJK JP Heavy' 'Noto Serif CJK JP Light' 'Noto Serif CJK JP Medium' 'Noto Serif CJK JP Semi-Bold' 'Noto Serif CJK JP Ultra-Light' 'osaka_unicode' 'Sazanami Gothic Medium' 'Sazanami Mincho Medium' 'Sazanami-Hanazono Mincho Medium' 'Source Han Serif JP' 'Source Han Serif JP Bold' 'Source Han Serif JP Heavy' 'Source Han Serif JP Light' 'Source Han Serif JP Medium' 'Source Han Serif JP Semi-Bold' 'Source Han Serif JP Ultra-Light' 'TakaoExGothic' 'TakaoGothic' 'TakaoPGothic' 'TakaoExMincho' 'TakaoMincho' 'TakaoPMincho' 'TH-Ming-P0' 'TH-Tshyn-P0' 'Unifont CSUR Medium' 'Unifont Medium' 'Unifont Sample Medium' 'VL Gothic' 'VL PGothic' 'YOzFont-Pro-B' 'YOzFont-Pro-R' 'YOzFont-ProN-B' 'YOzFont-ProN-R' 'YOzFont-Std-B' 'YOzFont-Std-R' 'YOzFont-StdN-B' 'YOzFont-StdN-R' 'YOzFontA-Pro-B' 'YOzFontA-Pro-R' 'YOzFontA-ProN-B' 'YOzFontA-ProN-R' 'YOzFontA-Std-B' 'YOzFontA-Std-R' 'YOzFontA-StdN-B' 'YOzFontA-StdN-R' 'YOzFontC-Pro-B' 'YOzFontC-Pro-R' 'YOzFontC-ProN-B' 'YOzFontC-ProN-R' 'YOzFontC-Std-B' 'YOzFontC-Std-R' 'YOzFontC-StdN-B' 'YOzFontC-StdN-R' 'YOzFontE-Pro-B' 'YOzFontE-Pro-R' 'YOzFontE-ProN-B' 'YOzFontE-ProN-R' 'YOzFontE-Std-B' 'YOzFontE-Std-R' 'YOzFontE-StdN-R' 'YOzFontN-Pro-B' 'YOzFontN-Pro-R' 'YOzFontN-ProN-B' 'YOzFontN-ProN-R' 'YOzFontN-Std-B' 'YOzFontN-Std-R' 'YOzFontN-StdN-B' 'YOzFontN-StdN-R'
+
+# Tepco electricity bill
+
+                        # --fontlist 'GenEi Koburi Mincho' 'HanaMinA Medium' 'Heisei Mincho Std Light' 'TakaoMincho'
+
+# JP Driver License
+
+                        # --fontlist 'Arial Unicode MS' 'GenEi Antique Pv4 Medium' 'GenEi Gothic N' 'GenEi Gothic N Bold' 'LateGo P v2 Medium' 'Hiragino Kaku Gothic Pro Light' 'Hiragino Kaku Gothic Pro Semi-Bold' 'Kozuka Gothic Pro Light' 'Kozuka Gothic Pro Medium' 'M+ 1c' 'M+ 1c Bold' 'M+ 2p' 'M+ 2p Bold' 'Meiryo' 'MS PGothic' 'Noto Sans CJK JP'
+

@@ -1,0 +1,27 @@
+.idea/
+
+# Directories
+storage/
+tessdata/
+tesseract-ocr/
+training/
+training-output/
+
+# Symbol links
+tessdata
+tesseract-ocr
+training
+training-output
+jp_fonts
+
+# Files
+**/*.zip
+**/*.swp
+**/*.pyc
+**/*.sh
+.env
+
+# Other files
+AbbyyOnlineSdk.py
+process.py
+
