@@ -1,0 +1,27 @@
+TESSDATA_DIR=./tessdata
+TRAIN_DATETIME=201806281531
+TRAIN_DIR=./training/$TRAIN_DATETIME/data
+OUTPUT_DIR=./training-output/$TRAIN_DATETIME/`date +"%Y%m%d%H%M"`/jpn_out
+# OUTPUT_DIR=./training-output/$TRAIN_DATETIME/201806201346/jpn_out
+
+mkdir -p $OUTPUT_DIR
+
+# Copy files to training ouput directory
+LOG_DIR=$OUTPUT_DIR/logs
+TRAINING_TEXT_FILE=./tesseract-ocr/langdata/jpn/sample.training_text
+mkdir ${LOG_DIR}
+
+cp ./prepare_training_data.sh ${LOG_DIR}/`date +"%Y%m%d%H%M"`_prepare_training_data.sh
+cp ./train.sh ${LOG_DIR}/`date +"%Y%m%d%H%M"`_train.sh
+cp ${TRAINING_TEXT_FILE} ${LOG_DIR}/`date +"%Y%m%d%H%M"`_jpn.training_text
+
+# Fine tuning
+./tesseract-ocr/src/training/combine_tessdata -e $TESSDATA_DIR/jpn_best.traineddata \
+                                              $OUTPUT_DIR/jpn.lstm
+./tesseract-ocr/src/training/lstmtraining --model_output $OUTPUT_DIR \
+                                          --continue_from $OUTPUT_DIR/jpn.lstm \
+                                          --traineddata $TRAIN_DIR/jpn/jpn.traineddata \
+                                          --old_traineddata $TESSDATA_DIR/jpn_best.traineddata \
+                                          --train_listfile $TRAIN_DIR/jpn.training_files.txt \
+                                          --max_iterations 1000
+
